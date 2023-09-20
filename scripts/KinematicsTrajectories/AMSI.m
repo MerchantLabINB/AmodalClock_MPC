@@ -21,6 +21,7 @@ mAmp = reshape(mean(Amplitude,5),[168,2,2]);
 Aamp  =mAmp(:,:,2)'; %2x168
 DiffAmp = diff(Aamp);
 
+fSig = 3;
 MinAmp = 0;
 MaxAmp = max(Amplitude, [], 'all') * (1-Dur(1)/Dur(2));
 ka_v = logsig(fSig*(-0.5+(DiffAmp-MinAmp) / (MaxAmp-MinAmp)));
@@ -58,15 +59,15 @@ SP = 42:42:168;
 
 ax(14) = subplot(rows,cols,[24,25]);
 hold on;
-plot(ka_v,'Color',cmap(2,:),'LineWidth',1.5)
-plot(ka_a,'Color',cmap(4,:),'LineWidth',1.5)
+plot(ka_v,'Color',cmap(4,:),'LineWidth',1.5)
+plot(ka_a,'Color',cmap(2,:),'LineWidth',1.5)
 ylim([0 1])
 line([SP; SP],get(gca, 'YLim'),'Color',[1 1 1],'LineStyle','--','LineWidth',1)
 
 ax(15) =  subplot(rows,cols,[29,30]);
 hold on;
-plot(kv_V,'Color',cmap(2,:),'LineWidth',1.5)
-plot(kv_A,'Color',cmap(4,:),'LineWidth',1.5)
+plot(kv_V,'Color',cmap(4,:),'LineWidth',1.5)
+plot(kv_A,'Color',cmap(2,:),'LineWidth',1.5)
 % line([SP; SP],get(gca, 'YLim'),'Color',[1 1 1],'LineStyle','--')
 ylim([0 1])
 line([SP; SP],get(gca, 'YLim'),'Color',[1 1 1],'LineStyle','--','LineWidth',1)

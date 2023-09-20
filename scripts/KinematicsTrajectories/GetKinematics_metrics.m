@@ -50,7 +50,7 @@ end
 sTrials = Manifold.KineT_TrajPry;
 sMTrials = Manifold.KineT_Traj;
 
-[Traj.PhaseTaps,Traj.Ampl,Traj.angle,Traj.SP,Traj.PositionP] = KinematicsParamsProyectionTrials(LinePoint,PointMod,FitPoints,sTrials,sMTrials,PlanePoints,binarrTaps,DistProye);
+[Traj.PhaseTaps,Traj.Ampl,Traj.angle,Traj.SP,Traj.PositionP,Traj.AmplTrials] = KinematicsParamsProyectionTrials(LinePoint,PointMod,FitPoints,sTrials,sMTrials,PlanePoints,binarrTaps,DistProye);
 
 % Compute metrics (dwell & movemente amplitude, angle and variability of
 % the position) in kinematics parameters by trials.
@@ -62,6 +62,7 @@ Manifold.PositionTrials= Traj.PositionP  ;
 Kinematics.AmplitudeTrials = Traj.Ampl;
 Kinematics.AngleTrials = Traj.angle;
 Kinematics.PositionTrials= Traj.SP;  
+Kinematics.AmplitudeTrialsAMSI= Traj.AmplTrials; 
 
 Kinematics.Amplitude = DistProye;
 Kinematics.Angle = Margangle;

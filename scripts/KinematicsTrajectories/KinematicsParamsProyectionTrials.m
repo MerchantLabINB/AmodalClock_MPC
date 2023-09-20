@@ -1,4 +1,4 @@
-function   [AngleTaps,DistProyeArr,MargangleArr,VarPosition,StartingPointArr] = KinematicsParamsProyectionTrials(LinePoint,PointMod,FitPoints,scores,scoresM,PlanePoints,binarrTaps,Amplitude)
+function   [AngleTaps,DistProyeArr,MargangleArr,VarPosition,StartingPointArr,DistProyeArrTrials] = KinematicsParamsProyectionTrials(LinePoint,PointMod,FitPoints,scores,scoresM,PlanePoints,binarrTaps,Amplitude)
 
 
 nCond = 4;
@@ -50,8 +50,9 @@ for numPoint = LinePoint%1: size(FitPoints,1)% 224 358 116
         end
 
         AngleTaps{i} = [ones(25,1),aux_Taps];
-                DistProyeArr{i} = DistProye- DistProye(:,1);
-%         DistProyeArr{i} = DistProye;
+         %Amplitude centered.
+        DistProyeArr{i} = DistProye- DistProye(:,1);
+        DistProyeArrTrials{i} = DistProye;
 
 
         StartingPointArr{i} = squeeze(StartingPoint(:,:,numPcVar));

@@ -6,7 +6,7 @@ Trajectories = kinematics.trajectories;
 SpeedTrajInter = cellfun(@InterpTrajectory, Trajectories, 'UniformOutput', 0);
 SpeedAmsi= cellfun(@Trajectory_Speed, SpeedTrajInter, 'UniformOutput', 0);
 
-Amp_arr = reshape(kinematics.AmplitudeTrials,[2,2])';
+Amp_arr = reshape(kinematics.AmplitudeTrialsAMSI,[2,2])';
 
 for i = 1:4
     AA = SpeedAmsi(:, i);
